@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const UniversalNavigation = ({ routesObj, style, isVoiceSupportEnabled }) => {
-    // console.log(routesObj)
     const [searchedValue, setSearchedValue] = useState("");
     const [suggestionsArray, setSuggestionsArray] = useState([]);
     const [results, setResults] = useState([]);
     const handleSearch = (e) => {
         setSearchedValue(e.target.value);
-        searchSuggestions(e.target.value);
+        fetchAllPossibleSuggestions(e.target.value);
     }
 
     useEffect(() => {
@@ -27,27 +26,24 @@ const UniversalNavigation = ({ routesObj, style, isVoiceSupportEnabled }) => {
     }, [searchedValue])
 
 
-    const searchSuggestions = (keyword) => {
+    const fetchAllPossibleSuggestions = (keyword) => {
         let localSuggestionsArray = [];
         for (const [key, value] of Object.entries(routesObj)) {
             localSuggestionsArray.push(key)
         }
-        // console.log(localSuggestionsArray)
         setSuggestionsArray(localSuggestionsArray)
     }
 
     const filterResults = (suggestionsArray) => {
         let localresults = [];
-        let filteredArray = suggestionsArray.filter(entry => entry.includes(searchedValue))
-        // console.log(filteredArray)
-        // console.log(routesObj['about']);
-        filteredArray.forEach(result => {
-            localresults.push(routesObj[result])
+        suggestionsArray?.forEach(entry => {
+            entry.split("_").forEach(word => {
+                word.includes(searchedValue) && localresults.push(routesObj[entry])
+            })
         })
         setResults(localresults)
     }
 
-    console.log(results)
     return (
         <div>
             <input value={searchedValue} onChange={handleSearch} />

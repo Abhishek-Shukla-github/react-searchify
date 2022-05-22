@@ -6,7 +6,7 @@ import Test from "./pages/Test";
 
 function App() {
   const routesObj = {
-    about: {
+    _about_: {
       title: "About page",
       route: "/about",
       info: "This link will take you to the about page",
@@ -16,7 +16,7 @@ function App() {
       </svg>
 
     },
-    about_again: {
+    _about_again_: {
       title: "About again page",
       route: "/about",
       info: "This is about_again",
@@ -26,7 +26,7 @@ function App() {
       </svg>
 
     },
-    about_again_and_again: {
+    _about_again_and_again_: {
       title: "About again and again page",
       route: "/about",
       info: "This is about_again_and_again",
@@ -45,7 +45,7 @@ function App() {
         <path d="M14.5 20.9999C14.3684 21.0007 14.2379 20.9755 14.1161 20.9257C13.9943 20.8759 13.8834 20.8026 13.79 20.7099C13.6963 20.617 13.6219 20.5064 13.5711 20.3845C13.5203 20.2626 13.4942 20.1319 13.4942 19.9999C13.4942 19.8679 13.5203 19.7372 13.5711 19.6154C13.6219 19.4935 13.6963 19.3829 13.79 19.2899L17.1 15.9999L13.92 12.6899C13.7337 12.5026 13.6292 12.2491 13.6292 11.9849C13.6292 11.7207 13.7337 11.4673 13.92 11.2799C14.013 11.1862 14.1236 11.1118 14.2454 11.061C14.3673 11.0103 14.498 10.9841 14.63 10.9841C14.762 10.9841 14.8927 11.0103 15.0146 11.061C15.1364 11.1118 15.247 11.1862 15.34 11.2799L19.2 15.2799C19.3832 15.4669 19.4859 15.7182 19.4859 15.9799C19.4859 16.2417 19.3832 16.493 19.2 16.6799L15.2 20.6799C15.1102 20.7769 15.0022 20.855 14.882 20.91C14.7619 20.9649 14.632 20.9955 14.5 20.9999Z" fill="#3671E9" />
       </svg>
     },
-    demo: {
+    _demo_: {
       title: "Demo page",
       route: "/demo",
       info: "This link will take you to the Demo page",
