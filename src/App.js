@@ -55,10 +55,18 @@ function App() {
       </svg>
     }
   }
+  const styleObj = {
+    searchbar: {
+      width: "40vw",
+      padding: "20px",
+      border: "2px solid grey",
+      color: "brown"
+    }
+  }
   return (
     <Router>
       <div className="App">
-        <UniversalNavigation routesObj={routesObj} />
+        <UniversalNavigation routesObj={routesObj} styleObj={styleObj} />
         <Routes>
           <Route path="test" element={<Test />} />
           <Route
