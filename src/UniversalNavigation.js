@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./styles.css"
 
-const UniversalNavigation = ({ routesObj, styleObj, isVoiceSupportEnabled }) => {
+const UniversalNavigation = ({ routesObj, styleObj, isVoiceSupportEnabled, crossBtn }) => {
     const [searchedValue, setSearchedValue] = useState("");
     const [suggestionsArray, setSuggestionsArray] = useState([]);
     const [results, setResults] = useState([]);
@@ -28,9 +28,6 @@ const UniversalNavigation = ({ routesObj, styleObj, isVoiceSupportEnabled }) => 
 
     const stylizeWrapper = () => ({
         padding: "5px 0px 5px 0px",
-        // paddingLeft: "0px",
-        // paddingRight: "0px",
-        width: styleObj.searchbar.width,
         marginRight: "auto",
         marginLeft: "auto",
     })
@@ -53,9 +50,16 @@ const UniversalNavigation = ({ routesObj, styleObj, isVoiceSupportEnabled }) => 
         setResults(localresults)
     }
 
+    const handleClose = () => {
+        setSearchedValue("")
+    }
+
     return (
-        <div className="parent-wrapper">
-            <input value={searchedValue} onChange={handleSearch} className="searchbar" style={styleObj.searchbar} />
+        <div className="parent-wrapper" style={{ width: styleObj.searchbar.width, position: 'absolute', left: "60%" }}>
+            <div className="input-wrapper">
+                <input value={searchedValue} onChange={handleSearch} className="searchbar" style={styleObj.searchbar} />
+                {searchedValue.length > 0 && <button className="cross-btn" onClick={handleClose}>{crossBtn}</button>}
+            </div>
             <div className="results-wrapper">
                 {results.map(result =>
                     <div className="suggestions" style={stylizeWrapper()}>

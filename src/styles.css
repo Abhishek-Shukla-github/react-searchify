@@ -7,22 +7,16 @@
     display: flex;
     align-items: center;
 }
-.parent-wrapper{
-    position: relative;
-}
 .results-wrapper{
     margin-top: 2px;
     position: absolute;
     width: 100%;
     max-height: 70vh;
     overflow-y: scroll;
-    margin-left: 9px;
 }
-
-
 .suggestions{
     background-color:white;
-    /* border: 1px #f0dfdf solid; */
+    width: 100%;
 }
 .suggestions:hover{
     background-color:rgba(211, 211, 211,0.2);
@@ -30,7 +24,6 @@
 .suggestions p{
     text-align: left;
 }
-
 .title{
     font-weight: 700;
     font-size: 14px;
@@ -38,4 +31,15 @@
 .svg{
     font-size: 14px;
     margin-right: 14px;
+}
+.input-wrapper{
+    position: relative;
+}
+.cross-btn{
+    position: absolute;
+    top: 30%;
+    right: 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
 }
