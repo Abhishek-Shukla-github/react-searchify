@@ -24,6 +24,10 @@
 .suggestions p{
     text-align: left;
 }
+.suggestions a{
+    text-decoration: none;
+    color: inherit;
+}
 .title{
     font-weight: 700;
     font-size: 14px;

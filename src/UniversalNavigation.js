@@ -55,7 +55,7 @@ const UniversalNavigation = ({ routesObj, styleObj, isVoiceSupportEnabled, cross
     }
 
     return (
-        <div className="parent-wrapper" style={{ width: styleObj.searchbar.width, position: 'absolute', left: "60%" }}>
+        <div className="parent-wrapper" style={{ width: styleObj.searchbar.width, position: 'absolute', left: styleObj.searchbar.left, top: styleObj.searchbar.top }}>
             <div className="input-wrapper">
                 <input value={searchedValue} onChange={handleSearch} className="searchbar" style={styleObj.searchbar} />
                 {searchedValue.length > 0 && <button className="cross-btn" onClick={handleClose}>{crossBtn}</button>}
