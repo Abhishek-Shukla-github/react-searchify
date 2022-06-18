@@ -64,19 +64,24 @@ function App() {
     }
   }
   return (
-    <Router>
-      <div className="App">
-        <UniversalNavigation routesObj={routesObj} styleObj={styleObj} />
-        <Routes>
-          <Route path="test" element={<Test />} />
-          <Route
-            path="demo"
-            element={<Demo />}
-          />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </div>
-    </Router>
+    <>
+      <Router>
+        <div className="App" style={{ textAlign: "center" }}>
+          <UniversalNavigation routesObj={routesObj} styleObj={styleObj} />
+          <Routes>
+            <Route path="test" element={<Test />} />
+            <Route
+              path="demo"
+              element={<Demo />}
+            />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </div>
+      </Router>
+      <>
+        {/* <h1>This is an NPM package</h1> */}
+      </>
+    </>
   );
 }
 

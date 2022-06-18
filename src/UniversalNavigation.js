@@ -27,7 +27,9 @@ const UniversalNavigation = ({ routesObj, styleObj, isVoiceSupportEnabled }) => 
     }, [searchedValue])
 
     const stylizeWrapper = () => ({
-        padding: styleObj.searchbar.padding,
+        padding: "5px 0px 5px 0px",
+        // paddingLeft: "0px",
+        // paddingRight: "0px",
         width: styleObj.searchbar.width,
         marginRight: "auto",
         marginLeft: "auto",
@@ -52,19 +54,23 @@ const UniversalNavigation = ({ routesObj, styleObj, isVoiceSupportEnabled }) => 
     }
 
     return (
-        <div >
+        <div className="parent-wrapper">
             <input value={searchedValue} onChange={handleSearch} className="searchbar" style={styleObj.searchbar} />
-            {results.map(result =>
-                <div className="results-wrapper" style={stylizeWrapper()}>
-                    <Link to={result.route} onClick={() => setSearchedValue("")}>
-                        <div className="private-title-svg-div">
-                            <p className="title">{result.title}</p>
-                            <p className="svg">{result.svg}</p>
-                        </div>
-                        <p className="info">{result.info}</p>
-                    </Link>
-                </div>
-            )}
+            <div className="results-wrapper">
+                {results.map(result =>
+                    <div className="suggestions" style={stylizeWrapper()}>
+                        <Link to={result.route} onClick={() => setSearchedValue("")}>
+                            <div className="private-title-svg-div">
+                                <p className="svg">{result.svg}</p>
+                                <div>
+                                    <p className="title">{result.title}</p>
+                                    <p className="info">{result.info}</p>
+                                </div>
+                            </div>
+                        </Link>
+                    </div>
+                )}
+            </div>
         </div>
     )
 }
