@@ -70,7 +70,7 @@ function App() {
     <>
       <Router>
         <div className="App" style={{ textAlign: "center" }}>
-          <UniversalNavigation routesObj={routesObj} styleObj={styleObj} crossBtn={crossBtn} />
+          <UniversalNavigation routesObj={routesObj} styleObj={styleObj} crossBtn={crossBtn} isVoiceSupportEnabled={true} micBtn="/mic.svg" stopBtn="/stop.svg" />
           <Routes>
             <Route path="test" element={<Test />} />
             <Route

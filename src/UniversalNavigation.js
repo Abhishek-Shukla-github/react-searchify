@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import "./styles.css"
 
-const UniversalNavigation = ({ routesObj, styleObj, isVoiceSupportEnabled, crossBtn }) => {
+const UniversalNavigation = ({ routesObj, styleObj, isVoiceSupportEnabled, crossBtn, micBtn, stopBtn }) => {
+    const {
+        transcript,
+        listening,
+        resetTranscript,
+        browserSupportsSpeechRecognition
+    } = useSpeechRecognition();
     const [searchedValue, setSearchedValue] = useState("");
     const [suggestionsArray, setSuggestionsArray] = useState([]);
     const [results, setResults] = useState([]);
@@ -53,12 +60,20 @@ const UniversalNavigation = ({ routesObj, styleObj, isVoiceSupportEnabled, cross
     const handleClose = () => {
         setSearchedValue("")
     }
+    useEffect(() => {
+        setSearchedValue(transcript)
+        fetchAllPossibleSuggestions(transcript)
+    }, [listening, transcript])
 
     return (
         <div className="parent-wrapper" style={{ width: styleObj.searchbar.width, position: 'absolute', left: styleObj.searchbar.left, top: styleObj.searchbar.top }}>
             <div className="input-wrapper">
                 <input value={searchedValue} onChange={handleSearch} className="searchbar" style={styleObj.searchbar} />
                 {searchedValue.length > 0 && <button className="cross-btn" onClick={handleClose}>{crossBtn}</button>}
+                {isVoiceSupportEnabled && browserSupportsSpeechRecognition &&
+                    !listening ? <button className="mic-btn" onClick={() => SpeechRecognition.startListening()}>{<img src={micBtn} />}</button>
+                    : <button className="stop-btn" onClick={() => SpeechRecognition.stopListening()}>{<img src={stopBtn} />}</button>
+                }
             </div>
             <div className="results-wrapper">
                 {results.map(result =>

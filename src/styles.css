@@ -47,3 +47,21 @@
     background: none;
     cursor: pointer;
 }
+.mic-btn{
+    position: absolute;
+    top: 30%;
+    right: 45px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.stop-btn{
+    position: absolute;
+    top: 25%;
+    right: 45px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
