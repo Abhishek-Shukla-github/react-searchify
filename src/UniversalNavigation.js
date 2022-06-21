@@ -61,9 +61,19 @@ const UniversalNavigation = ({ routesObj, styleObj, isVoiceSupportEnabled, cross
         setSearchedValue("")
     }
     useEffect(() => {
-        setSearchedValue(transcript)
-        fetchAllPossibleSuggestions(transcript)
+        if (transcript.length) {
+            setSearchedValue(transcript)
+            fetchAllPossibleSuggestions(transcript)
+        }
     }, [listening, transcript])
+
+    document.addEventListener("keydown", (e) => {
+        {
+            if (e.key === "Escape") {
+                handleClose()
+            }
+        }
+    })
 
     return (
         <div className="parent-wrapper" style={{ width: styleObj.searchbar.width, position: 'absolute', left: styleObj.searchbar.left, top: styleObj.searchbar.top }}>
