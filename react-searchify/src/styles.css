@@ -1,0 +1,67 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.private-title-svg-div{
+    display: flex;
+    align-items: center;
+}
+.results-wrapper{
+    margin-top: 2px;
+    position: absolute;
+    width: 100%;
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+.suggestions{
+    background-color:white;
+    width: 100%;
+}
+.suggestions:hover{
+    background-color:rgba(211, 211, 211,0.2);
+}
+.suggestions p{
+    text-align: left;
+}
+.suggestions a{
+    text-decoration: none;
+    color: inherit;
+}
+.title{
+    font-weight: 700;
+    font-size: 14px;
+}
+.svg{
+    font-size: 14px;
+    margin-right: 14px;
+}
+.input-wrapper{
+    position: relative;
+}
+.cross-btn{
+    position: absolute;
+    top: 30%;
+    right: 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.mic-btn{
+    position: absolute;
+    top: 30%;
+    right: 45px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.stop-btn{
+    position: absolute;
+    top: 25%;
+    right: 45px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
