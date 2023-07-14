@@ -1,4 +1,5 @@
 # react-searchify
+## [NPM page](https://www.npmjs.com/package/react-searchify)
 react-searchify is a modular NPM-package to add a search-navigation support to a React Application
 
 ### Features :-
